@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar hidebackButton>
-    <ion-title>
-      ToDoList
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar hidebackButton>
+        <ion-title>
+            ToDoList
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-    <div padding  *ngIf="tasks.length === 0">
-      <h5 text-center>
-        Vous n'avez aucune tâche en cours
-      </h5>
+    <!--Si aucune tâche, on affiche ce message-->
+    <div padding *ngIf="tasks.length === 0">
+        <h5 text-center>
+            Vous n'avez aucune tâche en cours
+        </h5>
     </div>
 
     <!--Affichage de la liste avec slide gauche et droite-->
@@ -36,9 +37,9 @@
 
     <!--Bouton pour aller à la page d'ajout des tâches-->
     <ion-fab padding bottom right>
-      <button ion-fab color="danger" (click)="goToAddTasks()">
-          <ion-icon name="add"></ion-icon>
-      </button>
+        <button ion-fab color="danger" (click)="goToAddTasks()">
+            <ion-icon name="add"></ion-icon>
+        </button>
     </ion-fab>
 
 </ion-content>

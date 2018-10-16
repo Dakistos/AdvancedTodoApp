@@ -1,37 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { AddItemPage } from '../add-item/add-item'
-import { TaskProvider } from "../../providers/task/task";
+import {AddItemPage} from '../add-item/add-item'
+import {TaskProvider} from "../../providers/task/task";
 import {Task} from "../../models/task";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
 
-  constructor(public navCtrl: NavController, private taskProvider : TaskProvider) {
-  }
+    constructor(public navCtrl: NavController, private taskProvider: TaskProvider) {
+    }
 
-  tasks: Task[] = [];
+    tasks: Task[] = [];
 
-  ngOnInit(){
-    this.taskProvider.getTasks().then(
-      tasks => {
-        if(null !== tasks){
-          this.tasks = tasks;
-        }
-      }
-    )
-  }
+    ngOnInit() {
+        this.taskProvider.getTasks().then(
+            tasks => {
+                if (null !== tasks) {
+                    this.tasks = tasks;
+                }
+            }
+        )
+    }
 
-  goToAddTasks(){
-    this.navCtrl.push(AddItemPage);
-  }
+    goToAddTasks() {
+        this.navCtrl.push(AddItemPage);
+    }
 
-  delete(tasks){
-    this.taskProvider.removeTasks(tasks);
-  }
+    delete(tasks) {
+        this.taskProvider.removeTasks(tasks);
+    }
 
 }

@@ -1,7 +1,30 @@
 page-add-item {
-  button{
+
+  #valider {
     float: right;
   }
 
+  #desc{
+    margin-bottom: 20px;
+  }
+
+  .button-full {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    background-color: white;
+
+    ion-icon{
+      float: left;
+      color: darken(grey, 15%);
+    }
+
+    p {
+      font-size: 15px;
+      margin: auto 20px;
+      color: #736f6e;
+    }
+  }
 
 }

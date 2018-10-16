@@ -16,18 +16,31 @@
 
     <ion-list>
         <ion-item>
-            <ion-input type="text" placeholder="Titre" [(ngModel)]="task.title" (keypress)="enterSave($event.keyCode)" *ngIf="active"></ion-input>
+            <ion-input type="text" placeholder="Titre" [(ngModel)]="task.title" (keypress)="enterSave($event.keyCode)"
+                       *ngIf="active"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-input type="text" placeholder="Description" [(ngModel)]="task.description" (keypress)="enterSave($event.keyCode)" *ngIf="active"></ion-input>
+        <ion-item id="desc">
+            <ion-input type="text" placeholder="Description" [(ngModel)]="task.description"
+                       (keypress)="enterSave($event.keyCode)" *ngIf="active"></ion-input>
         </ion-item>
+        <button class="button-full">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="myDate">
+            </ion-datetime>
+            <p>Date d'échéance</p>
+        </button>
+
+        <button class="button-full">
+            <ion-icon name="alarm"></ion-icon>
+            <p>Rappel</p>
+        </button>
     </ion-list>
 
 
     <!-- {{ task | json }} -->
 
     <!--Validation-->
-    <button ion-fab mini (click)=saveTask()>
+    <button id="valider" ion-fab mini (click)=saveTask()>
         <ion-icon name="checkmark"></ion-icon>
     </button>
 </ion-content>

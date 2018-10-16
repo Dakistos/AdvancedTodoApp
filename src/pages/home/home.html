@@ -1,14 +1,44 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hidebackButton>
     <ion-title>
-      Ionic Blank
+      ToDoList
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <div padding  *ngIf="tasks.length === 0">
+      <h5 text-center>
+        Vous n'avez aucune tâche en cours
+      </h5>
+    </div>
+
+    <!--Affichage de la liste avec slide gauche et droite-->
+    <ion-list>
+        <ion-item-sliding *ngFor="let task of tasks">
+            <ion-item>
+                <h2>{{task.title}}</h2>
+                <p>{{task.description}}</p>
+            </ion-item>
+            <ion-item-options side="left">
+                <button ion-button color="primary">
+                    <ion-icon name="create"></ion-icon>
+                </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="delete(item)">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <!--Bouton pour aller à la page d'ajout des tâches-->
+    <ion-fab padding bottom right>
+      <button ion-fab color="danger" (click)="goToAddTasks()">
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+
 </ion-content>

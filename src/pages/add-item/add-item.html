@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AddItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tâche</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <!--Informations pour l'ajout de la tâche-->
+
+    <ion-list>
+        <ion-item>
+            <ion-input type="text" placeholder="Titre" [(ngModel)]="task.title" (keypress)="enterSave($event.keyCode)" *ngIf="active"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Description" [(ngModel)]="task.description" (keypress)="enterSave($event.keyCode)" *ngIf="active"></ion-input>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- {{ task | json }} -->
+
+    <!--Validation-->
+    <button ion-fab mini (click)=saveTask()>
+        <ion-icon name="checkmark"></ion-icon>
+    </button>
+</ion-content>
